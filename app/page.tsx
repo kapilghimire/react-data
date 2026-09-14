@@ -1,5 +1,3 @@
-
-
 export default function Home() {
   return (
     <main className="container py-5 flex-grow-1 d-flex align-items-center">
