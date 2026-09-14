@@ -2,10 +2,15 @@
 
 import { useEffect, useState } from "react";
 import SpeakerDetail from "./../speakers/speaker-detail";
+import { Speaker } from "./../lib/general-types";
 
 export default function Speakers() {
 
-  const speakers = [
+
+
+
+
+  const speakers: Speaker[] = [
     {
       id: 1124,
       firstName: "Douglas",
@@ -38,7 +43,7 @@ export default function Speakers() {
     },
   ];
 
-  const [speakerList, setSpeakerList] = useState<any[]>([]);
+  const [speakerList, setSpeakerList] = useState<Speaker[]>([]);
   
   useEffect(() => {
     const sleep = (ms: number) => new Promise((resolve) =>
@@ -55,7 +60,7 @@ export default function Speakers() {
   return (
     <div className="container">
       <div className="row g-4">
-      {speakerList.map((speaker:any) => (
+      {speakerList.map((speaker: Speaker) => (
         <SpeakerDetail key={speaker.id} speaker={speaker} />
       ))}
       </div>
