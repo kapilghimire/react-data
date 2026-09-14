@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
+import SpeakerDetail from "./../speakers/speaker-detail";
 
 export default function Speakers() {
 
@@ -53,13 +53,13 @@ export default function Speakers() {
   }, []);
 
   return (
-    <ul>
+    <div className="container">
+      <div className="row g-4">
       {speakerList.map((speaker:any) => (
-        <li key={speaker.id}>
-          {speaker.firstName} {speaker.lastName} -{speaker.id}
-        </li>
+        <SpeakerDetail key={speaker.id} speaker={speaker} />
       ))}
-    </ul>
+      </div>
+    </div>
   );
    
 }
