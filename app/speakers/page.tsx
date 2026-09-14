@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 export default function Speakers() {
@@ -38,9 +38,23 @@ export default function Speakers() {
     },
   ];
 
+  const [speakerList, setSpeakerList] = useState<any[]>([]);
+  
+  useEffect(() => {
+    const sleep = (ms: number) => new Promise((resolve) =>
+       setTimeout(resolve, ms));
+    
+    async function fetchSpeakers() {
+      await sleep(1000); // Simulate a delay for fetching data
+      setSpeakerList(speakers);  
+    }
+    fetchSpeakers();
+   
+  }, []);
+
   return (
     <ul>
-      {speakers.map((speaker) => (
+      {speakerList.map((speaker:any) => (
         <li key={speaker.id}>
           {speaker.firstName} {speaker.lastName} -{speaker.id}
         </li>
